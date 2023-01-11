@@ -8,7 +8,7 @@ import register from "../views/register.vue";
 import profile from "../views/profile.vue";
 import changePwd from "../views/changePwd.vue";
 import movie_details from "../views/movie_details.vue";
-import learning_page from "../views/learning_page.vue";
+import savedCourses from "../views/savedCourses.vue";
 
 import admin from "../views/admin.vue";
 import admin_create_movie from "../views/admin_create_movie.vue";
@@ -33,18 +33,16 @@ const routes = [
     name: "register",
     component: register,
   },
+
+  {
+    path: "/savedCourses",
+    name: "savedCourses",
+    component: savedCourses,
+  },
   {
     path: "/movie_details/:id",
     name: "movie_details",
     component: movie_details,
-    meta: {
-      requiresAuth: true,
-    },
-  },
-  {
-    path: "/movie_details/:id/learning_page",
-    name: "learning_page",
-    component: learning_page,
     meta: {
       requiresAuth: true,
     },

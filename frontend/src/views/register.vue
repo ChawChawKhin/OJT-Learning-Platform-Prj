@@ -1,66 +1,122 @@
 <template>
   <div>
     <v-container>
-      <!-- Register Form -->
-      <v-form ref="registerForm" v-model="registerForm">
-        <!-- Name -->
-        <v-text-field
-          v-model="name"
-          :counter="10"
-          :rules="[
-            (v) => !!v || 'Required',
-            (v) =>
-              (v && v.length <= 10) || 'Name must be less than 10 characters',
-          ]"
-          label="Name"
-          required
-        ></v-text-field>
+      <v-row align="center" justify="center">
+        <v-col cols="12" sm="10">
+          <v-card class="elevation-6 mt-10">
+            <v-window>
+              <v-window-item>
+                <v-row>
+                  <v-col cols="12" md="6" class="blue rounded-br-xl">
+                    <div style="text-align: center; padding: 180px 0">
+                      <v-card-text class="white--text">
+                        <h3 class="text-center">Already Registered?</h3>
+                      </v-card-text>
+                      <div class="text-center">
+                        <v-btn tile outlined dark to="/login">
+                          Log in
+                        </v-btn>
+                      </div>
+                    </div>
+                  </v-col>
 
-        <!-- Email -->
-        <v-text-field
-          v-model="email"
-          :rules="[
-            (v) => !!v || 'Required',
-            (v) => /.+@.+\..+/.test(v) || 'E-mail must be valid',
-          ]"
-          label="E-mail"
-          required
-        ></v-text-field>
+                  <v-col cols="12" md="6">
+                    <v-card-text class="mt-12">
+                      <!-- Register Form -->
+                      <v-form ref="registerForm" v-model="registerForm">
+                        <h4 class="text-center">Register for an Account</h4>
 
-        <!-- Password -->
-        <v-text-field
-          v-model="password"
-          :counter="10"
-          :rules="[
-            (v) => !!v || 'Required',
-            (v) =>
-              (v && v.length <= 10) ||
-              'Password must be less than 10 characters',
-          ]"
-          label="Password"
-          required
-        ></v-text-field>
+                        <v-row align="center" justify="center">
+                          <v-col cols="12" sm="8">
+                            <!-- Name -->
+                            <v-text-field
+                              v-model="name"
+                              :counter="10"
+                              :rules="[
+                                (v) => !!v || 'Required',
+                                (v) =>
+                                  (v && v.length <= 10) ||
+                                  'Name must be less than 10 characters',
+                              ]"
+                              label="Name"
+                              required
+                              outlined
+                              dense
+                              color="blue"
+                              autocomplete="false"
+                              class="mt-4"
+                            ></v-text-field>
+                            <!-- Email -->
+                            <v-text-field
+                              v-model="email"
+                              :rules="[
+                                (v) => !!v || 'Required',
+                                (v) =>
+                                  /.+@.+\..+/.test(v) || 'E-mail must be valid',
+                              ]"
+                              label="E-mail"
+                              required
+                              outlined
+                              dense
+                              color="blue"
+                              autocomplete="false"
+                            ></v-text-field>
+                            <!-- Password -->
+                            <v-text-field
+                              v-model="password"
+                              :counter="10"
+                              :rules="[
+                                (v) => !!v || 'Required',
+                                (v) =>
+                                  (v && v.length <= 10) ||
+                                  'Password must be less than 10 characters',
+                              ]"
+                              label="Password"
+                              required
+                              outlined
+                              dense
+                              color="blue"
+                              autocomplete="false"
+                              type="password"
+                            ></v-text-field>
 
-        <!-- Register Btn -->
-        <v-btn
-          :disabled="!registerForm"
-          color="success"
-          class="mr-4"
-          @click="register()"
-        >
-          <span v-if="!loading">Register</span>
-          <v-progress-circular
-            v-else
-            indeterminate
-            color="primary"
-          ></v-progress-circular>
-        </v-btn>
+                            <!-- Register Btn -->
+                            <v-btn
+                              color="blue"
+                              class="mr-4"
+                              dark
+                              block
+                              tile
+                              @click="register()"
+                            >
+                              <span v-if="!loading">Register</span>
+                              <v-progress-circular
+                                v-else
+                                indeterminate
+                                color="primary"
+                              ></v-progress-circular>
+                            </v-btn>
 
-        <!-- Error Alert -->
-        <v-alert class="mt-3" v-show="errorAlert" dense type="error">
-          Register Failed!
-        </v-alert>
-      </v-form>
+                            <!-- Error Alert -->
+                            <v-alert
+                              class="mt-3"
+                              v-show="errorAlert"
+                              dense
+                              type="error"
+                            >
+                              Register Failed!
+                            </v-alert>
+                          </v-col>
+                        </v-row>
+                      </v-form>
+                    </v-card-text>
+                  </v-col>
+                </v-row>
+              </v-window-item>
+            </v-window>
+          </v-card>
+        </v-col>
+      </v-row>
     </v-container>
   </div>
 </template>
@@ -131,3 +187,12 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.v-application .rounded-bl-xl {
+  border-bottom-left-radius: 300px !important;
+}
+.v-application .rounded-br-xl {
+  border-bottom-right-radius: 300px !important;
+}
+</style>

@@ -1,18 +1,23 @@
 <template>
   <div>
     <v-row>
-      <v-col cols="2">
-        <v-autocomplete
-          v-model="value"
-          :items="items"
-          dense
-          filled
-          label="Search Course"
-        ></v-autocomplete>
-      </v-col>
-      <v-col>
-        <h2>Home Page</h2>
-      </v-col>
+      <h2 class="mx-3 grey--text">Featured Courses</h2>
+      <carousel-3d
+        :controls-visible="true"
+        :clickable="false"
+        :key="movieList.length"
+        :listData="movieList"
+        :height="200"
+      >
+        <slide :index="index" v-for="(movie, index) in movieList" :key="index">
+          <figure>
+            <v-img :src="localDomain + movie.posterPath"></v-img>
+            <figcaption>
+              <v-btn @click="goToMovieDetails(movie)" text color="white"> {{ movie.title }}</v-btn>
+            </figcaption>
+          </figure>
+        </slide>
+      </carousel-3d>
     </v-row>
 
     <v-row>
@@ -62,7 +67,7 @@
                 </v-card-actions>
               </v-list-item-content>
             </v-list-item>
-          </v-card>          
+          </v-card>
         </v-row>
       </v-col>
     </v-row>
@@ -71,11 +76,12 @@
 
 <script>
 import utils from "../utils/utils";
+import { Carousel3d, Slide } from "vue-carousel-3d";
 
 export default {
   name: "home",
 
-  components: {},
+  components: { Carousel3d, Slide },
 
   data() {
     return {
@@ -135,3 +141,27 @@ export default {
   },
 };
 </script>
+
+<style>
+.carousel-3d-container figure {
+  margin: 0;
+}
+
+.carousel-3d-container figcaption {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  bottom: 0;
+  position: absolute;
+  bottom: 0;
+  padding: 15px;
+  font-size: 12px;
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.next span,
+.prev span {
+  color: red;
+}
+</style>
