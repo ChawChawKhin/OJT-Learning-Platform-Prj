@@ -18,6 +18,9 @@
       <!-- Movie Info -->
       <v-col cols="7" sm="6">
         <h1 class="grey--text text-darken-3 mt-5">{{ movie.title }}</h1>
+        <v-btn  text icon color="blue lighten-2" @click="toggleSaved">
+          <v-icon>{{ saved ? 'mdi-heart' : 'mdi-heart-outline' }}</v-icon>
+        </v-btn>
         <div class="text-caption ml-2 my-2">{{ movie.category.name }}</div>
         <div class="text-body-1 ml-2 my-2">
           {{ movie.budget }} replace total time
@@ -45,6 +48,7 @@
             </v-card>
           </v-dialog>
         </v-card>
+        
       </v-col>
     </v-row>
 
@@ -65,14 +69,15 @@
                     {{ movie.category.name }} Instructor
                   </v-list-item-title>
                   <v-spacer></v-spacer>
-                  <v-list-item-subtitle
-                    ><a
+                  <v-list-item-subtitle>
+                    <a
                       :href="youtubeChannelURL"
                       target="_blank"
                       style="text-decoration: none"
-                      ><v-btn>Go</v-btn></a
-                    ></v-list-item-subtitle
-                  >
+                    >
+                      <v-btn>Go</v-btn>
+                    </a>
+                  </v-list-item-subtitle>
                 </v-list-item-content>
               </v-list-item>
             </v-list>
@@ -120,6 +125,8 @@ export default {
 
       dialogm1: "",
       dialog: false,
+
+      saved : false,
     };
   },
 
@@ -191,6 +198,10 @@ export default {
       this.result = topOfQueue;
       this.youtubeURL = "";
     },
+
+    toggleSaved(){
+      this.saved = !this.saved;
+    }
   },
 };
 </script>
