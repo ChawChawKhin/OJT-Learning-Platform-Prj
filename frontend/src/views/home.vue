@@ -92,7 +92,6 @@ export default {
 
       movieCategoryList: [],
 
-      items: ["foo", "bar", "fizz", "buzz"],
     };
   },
 

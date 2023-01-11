@@ -2,7 +2,7 @@
   <v-app-bar app color="#3F52E3" dense dark>
     <v-icon class="mr-2">mdi-cast-education</v-icon>
     <a class="navtitle" href="/">U<strong>Tutorial</strong></a>
-    <v-btn text class="ml-2" to="/savedCourses">Saved Courses</v-btn>
+    <v-btn v-if="isLogin" text class="ml-2" to="/savedCourses">Saved Courses</v-btn>
     <v-spacer></v-spacer>
 
     <!-- Home -->
