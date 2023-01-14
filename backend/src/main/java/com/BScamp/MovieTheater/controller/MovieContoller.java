@@ -56,6 +56,7 @@ public class MovieContoller {
 		return ResponseEntity.ok().body(movie);
 	}
 
+	/*
 	@GetMapping("/media/{fileType}/{fileName}")
 	public ResponseEntity<?> getPoster(
 			@PathVariable("fileType") String fileType,
@@ -81,6 +82,6 @@ public class MovieContoller {
 			return ResponseEntity.notFound().build();
 		}
 		return ResponseEntity.ok().contentType(contentType).body(fileBytes);
-	}
+	}*/
 
 }

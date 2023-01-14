@@ -66,5 +66,117 @@ public class User implements java.io.Serializable {
 	private LocalDateTime createdAt;
 
 	private LocalDateTime updatedAt;
+	
+	public User() {
+		
+	}
+	public User(int id, @NotBlank(message = "Required") String name, @NotBlank(message = "Required") String password,
+			@NotBlank(message = "Required") String gmail, UserStatus status, UserRole role, LocalDate startJoinDate,
+			LocalDate lastJoinDate, int accessCount, LocalDateTime createdAt, LocalDateTime updatedAt) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.password = password;
+		this.gmail = gmail;
+		this.status = status;
+		this.role = role;
+		this.startJoinDate = startJoinDate;
+		this.lastJoinDate = lastJoinDate;
+		this.accessCount = accessCount;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getGmail() {
+		return gmail;
+	}
+
+	public void setGmail(String gmail) {
+		this.gmail = gmail;
+	}
+
+	public UserStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(UserStatus status) {
+		this.status = status;
+	}
+
+	public UserRole getRole() {
+		return role;
+	}
+
+	public void setRole(UserRole role) {
+		this.role = role;
+	}
+
+	public LocalDate getStartJoinDate() {
+		return startJoinDate;
+	}
+
+	public void setStartJoinDate(LocalDate startJoinDate) {
+		this.startJoinDate = startJoinDate;
+	}
+
+	public LocalDate getLastJoinDate() {
+		return lastJoinDate;
+	}
+
+	public void setLastJoinDate(LocalDate lastJoinDate) {
+		this.lastJoinDate = lastJoinDate;
+	}
+
+	public int getAccessCount() {
+		return accessCount;
+	}
+
+	public void setAccessCount(int accessCount) {
+		this.accessCount = accessCount;
+	}
+
+	public LocalDateTime getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(LocalDateTime createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public LocalDateTime getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(LocalDateTime updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
 }

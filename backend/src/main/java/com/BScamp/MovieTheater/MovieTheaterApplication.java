@@ -44,13 +44,8 @@ public class MovieTheaterApplication implements CommandLineRunner {
 
 		if (ddlMode.equals("create")) {
 
-			userService.create(
-					new User(
-							1, "Admin", "1111", "admin@gmail.com",
-							UserStatus.active, UserRole.admin, LocalDate.now(),
-							null, 0, LocalDateTime.now(), null
-					)
-			);
+			userService.create(	new User(1, "Admin", "1111", "admin@gmail.com",	UserStatus.active, UserRole.admin, LocalDate.now(),
+							null, 0, LocalDateTime.now(), null));
 
 			categoryService.create(new Category(1, "Adventure"));
 			categoryService.create(new Category(2, "Science Fiction"));

@@ -69,5 +69,117 @@ public class Movie implements java.io.Serializable {
 	private LocalDateTime createdAt;
 
 	private LocalDateTime updatedAt;
+	
+	
+
+	public Movie(int id, @NotBlank(message = "Required") String title,
+			@NotBlank(message = "Required") String posterPath, int budget, String homePage,
+			@NotBlank(message = "Required") String trailerPath, @NotBlank(message = "Required") String overview,
+			Category category, Boolean adult, LocalDateTime createdAt, LocalDateTime updatedAt) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.posterPath = posterPath;
+		this.budget = budget;
+		this.homePage = homePage;
+		this.trailerPath = trailerPath;
+		this.overview = overview;
+		this.category = category;
+		this.adult = adult;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getPosterPath() {
+		return posterPath;
+	}
+
+	public void setPosterPath(String posterPath) {
+		this.posterPath = posterPath;
+	}
+
+	public int getBudget() {
+		return budget;
+	}
+
+	public void setBudget(int budget) {
+		this.budget = budget;
+	}
+
+	public String getHomePage() {
+		return homePage;
+	}
+
+	public void setHomePage(String homePage) {
+		this.homePage = homePage;
+	}
+
+	public String getTrailerPath() {
+		return trailerPath;
+	}
+
+	public void setTrailerPath(String trailerPath) {
+		this.trailerPath = trailerPath;
+	}
+
+	public String getOverview() {
+		return overview;
+	}
+
+	public void setOverview(String overview) {
+		this.overview = overview;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public Boolean getAdult() {
+		return adult;
+	}
+
+	public void setAdult(Boolean adult) {
+		this.adult = adult;
+	}
+
+	public LocalDateTime getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(LocalDateTime createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public LocalDateTime getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(LocalDateTime updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
 }
